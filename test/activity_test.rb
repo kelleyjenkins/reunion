@@ -57,5 +57,15 @@ class ActivityTest < Minitest::Test
     assert_equal 15, activity.split_cost
   end
 
-  
+  def test_it_shows_how_much_each_owes
+    activity = Activity.new("hiking")
+    activity.add_participant("Sarah", 10)
+    activity.add_participant("John", 20)
+
+    owed = {"Sarah" => 5, "John" => -5}
+
+    assert_equal owed, activity.amount_owed
+    assert_instance_of Hash, activity.amount_owed
+  end
+
 end

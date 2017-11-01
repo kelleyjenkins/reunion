@@ -5,6 +5,7 @@ class Activity
   def initialize(name)
     @name = name
     @participants = {}
+    @owed = {}
   end
 
   def add_participant(person, cost)
@@ -19,5 +20,10 @@ class Activity
     total_cost / participants.count
   end
 
-
+  def amount_owed
+    @participants.keys.each do |person|
+      @owed[person] = split_cost - participants[person]
+    end
+    @owed
+  end
 end
