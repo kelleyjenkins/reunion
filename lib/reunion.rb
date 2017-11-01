@@ -1,3 +1,5 @@
+require 'pry'
+require './lib/activity'
 class Reunion
   attr_reader :activities
 
@@ -10,8 +12,8 @@ class Reunion
     @activities << activity
   end
 
-  def total_cost
-    
+  def total_cost_reunion
+     @activities[0].participants.values.sum
   end
 
 end

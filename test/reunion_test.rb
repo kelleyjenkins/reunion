@@ -42,6 +42,33 @@ class ReunionTest < Minitest::Test
     assert_equal "ice skating", reunion.activities[1].name
   end
 
-  
+  def test_it_can_total_reunion_cost
+    reunion = Reunion.new("Denver")
+    activity1 = Activity.new("dinner")
+
+    reunion.add_activity(activity1)
+
+    activity1.add_participant("Sam", 50)
+    activity1.add_participant("Dave", 70)
+
+
+    assert_equal 120, reunion.total_cost_reunion
+  end
+
+  def test_it_can_total_reunion_cost
+    reunion = Reunion.new("Denver")
+    activity1 = Activity.new("dinner")
+    activity2 = Activity.new("ice skating")
+
+    reunion.add_activity(activity1)
+    reunion.add_activity(activity2)
+
+    activity1.add_participant("Sam", 50)
+    activity1.add_participant("Dave", 70)
+    activity2.add_participant("Sarah", 20)
+
+
+    assert_equal 140, reunion.total_cost_reunion
+  end
 
 end
