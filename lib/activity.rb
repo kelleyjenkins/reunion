@@ -11,5 +11,13 @@ class Activity
     participants[person] = cost
   end
 
+  def total_cost
+    participants.values.sum
+  end
+
+  def split_cost
+    total_cost / participants.count
+  end
+
 
 end
